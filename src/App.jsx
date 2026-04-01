@@ -146,7 +146,7 @@ const DigiToolsLanding = () => {
             <div className="max-w-7xl mx-auto text-center">
               <div className="mb-16 text-center">
                 <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">Premium Digital Tools</h2>
-                <p className="text-slate-500 max-w-2xl mx-auto mb-10 text-sm md:text-base leading-relaxed">Choose from our curated collection of premium digital products designed to boost your productivity.</p>
+                <p className="text-slate-500 max-w-2xl mx-auto mb-10 text-sm md:text-base leading-relaxed">Choose from our curated collection of premium digital products designed to boost your productivity and creativity.</p>
                 
                 <div className="flex justify-center">
                   <div className="inline-flex items-center bg-white rounded-full p-1.5 border border-slate-100 shadow-sm">
