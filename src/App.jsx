@@ -1,3 +1,4 @@
+import { FaFacebookF, FaTwitter, FaLinkedinIn } from "react-icons/fa";
 import React, { useState } from 'react';
 import { 
   ShoppingCart, Play, Check, UserPlus, Package, Rocket, X, Zap
@@ -270,60 +271,119 @@ const DigiToolsLanding = () => {
           </div>
         </section>
       )}
-{/* CTA SECTION - ফুটারের ঠিক উপরে যোগ করুন */}
-<section className="py-24 px-6">
-  <div className="max-w-7xl mx-auto">
-    <div className="bg-gradient-to-r from-[#8B5CF6] to-[#7C3AED] rounded-[3rem] p-12 md:p-20 text-center text-white shadow-2xl relative overflow-hidden">
-      
-      {/* Background Decorative Circles (Optional for extra flair) */}
-      <div className="absolute top-0 left-0 w-64 h-64 bg-white/5 rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl"></div>
-      <div className="absolute bottom-0 right-0 w-64 h-64 bg-black/5 rounded-full translate-x-1/2 translate-y-1/2 blur-3xl"></div>
+{/* CTA SECTION - Full Width Background */}
+<section className="bg-gradient-to-r from-[#8B5CF6] to-[#7C3AED] py-24 px-6 relative overflow-hidden shadow-2xl">
+  
+  {/* Background Decorative Circles */}
+  <div className="absolute top-0 left-0 w-64 h-64 bg-white/5 rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl"></div>
+  <div className="absolute bottom-0 right-0 w-64 h-64 bg-black/5 rounded-full translate-x-1/2 translate-y-1/2 blur-3xl"></div>
 
-      <div className="relative z-10">
-        <h2 className="text-4xl md:text-5xl font-extrabold mb-6 tracking-tight">
-          Ready To Transform Your Workflow?
-        </h2>
-        <p className="text-purple-100 text-lg max-w-2xl mx-auto mb-12 leading-relaxed">
-          Join thousands of professionals who are already using Digitools to work smarter. <br className="hidden md:block" /> 
-          Start your free trial today.
-        </p>
+  <div className="max-w-7xl mx-auto relative z-10 text-center text-white">
+    <h2 className="text-4xl md:text-5xl font-extrabold mb-6 tracking-tight">
+      Ready To Transform Your Workflow?
+    </h2>
+    <p className="text-purple-100 text-lg max-w-2xl mx-auto mb-12 leading-relaxed">
+      Join thousands of professionals who are already using Digitools to work smarter. <br className="hidden md:block" /> 
+      Start your free trial today.
+    </p>
 
-        <div className="flex flex-wrap justify-center gap-4 mb-8">
-          <button className="bg-white text-[#7C3AED] px-10 py-4 rounded-full font-bold text-lg hover:bg-slate-50 transition-all shadow-lg active:scale-95">
-            Explore Products
-          </button>
-          <button className="border-2 border-white/30 text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-white/10 transition-all active:scale-95">
-            View Pricing
-          </button>
-        </div>
+    <div className="flex flex-wrap justify-center gap-4 mb-8">
+      <button className="bg-white text-[#7C3AED] px-10 py-4 rounded-full font-bold text-lg hover:bg-slate-50 transition-all shadow-lg active:scale-95">
+        Explore Products
+      </button>
+      <button className="border-2 border-white/30 text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-white/10 transition-all active:scale-95">
+        View Pricing
+      </button>
+    </div>
 
-        <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 text-purple-200 text-sm font-medium">
-          <span>14-day free trial</span>
-          <span className="hidden md:block">•</span>
-          <span>No credit card required</span>
-          <span className="hidden md:block">•</span>
-          <span>Cancel anytime</span>
-        </div>
-      </div>
+    <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 text-purple-200 text-sm font-medium">
+      <span>14-day free trial</span>
+      <span className="hidden md:block">•</span>
+      <span>No credit card required</span>
+      <span className="hidden md:block">•</span>
+      <span>Cancel anytime</span>
     </div>
   </div>
 </section>
       {/* FOOTER */}
-      <footer className="bg-[#0b1a2a] text-white pt-20 pb-6 px-8 text-left">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-5 gap-12 border-b border-slate-800 pb-16">
-          <div className="md:col-span-2 space-y-6">
-            <h2 className="text-3xl font-extrabold text-white">DigiTools</h2>
-            <p className="text-slate-400 max-w-sm leading-relaxed text-sm">Premium digital tools for creators and businesses. Work smarter with our suite of powerful tools.</p>
-          </div>
-          <div><h4 className="font-semibold mb-6 text-white text-lg">Product</h4><ul className="space-y-3 text-slate-400 text-sm"><li><a href="#" className="hover:text-purple-400 transition">Features</a></li><li><a href="#" className="hover:text-purple-400 transition">Pricing</a></li><li><a href="#" className="hover:text-purple-400 transition">Templates</a></li></ul></div>
-          <div><h4 className="font-semibold mb-6 text-white text-lg">Company</h4><ul className="space-y-3 text-slate-400 text-sm"><li><a href="#" className="hover:text-purple-400 transition">About</a></li><li><a href="#" className="hover:text-purple-400 transition">Blog</a></li><li><a href="#" className="hover:text-purple-400 transition">Careers</a></li></ul></div>
-          <div><h4 className="font-semibold mb-6 text-white text-lg">Social</h4><div className="flex gap-4"><div className="w-10 h-10 flex items-center justify-center rounded-full bg-white text-black cursor-pointer hover:bg-purple-400 transition font-bold text-sm uppercase">fb</div><div className="w-10 h-10 flex items-center justify-center rounded-full bg-white text-black cursor-pointer hover:bg-purple-400 transition font-bold text-sm uppercase">tw</div><div className="w-10 h-10 flex items-center justify-center rounded-full bg-white text-black cursor-pointer hover:bg-purple-400 transition font-bold text-sm uppercase">in</div></div></div>
+{/* FOOTER - একদম ছবির মতো ডিজাইন */}
+<footer className="bg-[#0B1221] text-white pt-20 pb-10 px-6 md:px-12 border-t border-slate-900">
+  <div className="max-w-7xl mx-auto">
+    {/* Main Content Area */}
+    <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
+      
+      {/* 1. Logo & Description */}
+      <div className="md:col-span-4 space-y-6 text-left">
+        <h2 className="text-4xl font-bold tracking-tight">DigiTools</h2>
+        <p className="text-slate-400 text-[15px] leading-relaxed max-w-xs">
+          Premium digital tools for creators, professionals, and businesses. Work smarter with our suite of powerful tools.
+        </p>
+      </div>
+
+      {/* 2. Product Links */}
+      <div className="md:col-span-2 text-left">
+        <h4 className="text-[17px] font-semibold mb-7">Product</h4>
+        <ul className="space-y-4 text-slate-400 text-[15px]">
+          <li><a href="#" className="hover:text-white transition">Features</a></li>
+          <li><a href="#" className="hover:text-white transition">Pricing</a></li>
+          <li><a href="#" className="hover:text-white transition">Templates</a></li>
+          <li><a href="#" className="hover:text-white transition">Integrations</a></li>
+        </ul>
+      </div>
+
+      {/* 3. Company Links */}
+      <div className="md:col-span-2 text-left">
+        <h4 className="text-[17px] font-semibold mb-7">Company</h4>
+        <ul className="space-y-4 text-slate-400 text-[15px]">
+          <li><a href="#" className="hover:text-white transition">About</a></li>
+          <li><a href="#" className="hover:text-white transition">Blog</a></li>
+          <li><a href="#" className="hover:text-white transition">Careers</a></li>
+          <li><a href="#" className="hover:text-white transition">Press</a></li>
+        </ul>
+      </div>
+
+      {/* 4. Resources Links */}
+      <div className="md:col-span-2 text-left">
+        <h4 className="text-[17px] font-semibold mb-7">Resources</h4>
+        <ul className="space-y-4 text-slate-400 text-[15px]">
+          <li><a href="#" className="hover:text-white transition">Documentation</a></li>
+          <li><a href="#" className="hover:text-white transition">Help Center</a></li>
+          <li><a href="#" className="hover:text-white transition">Community</a></li>
+          <li><a href="#" className="hover:text-white transition">Contact</a></li>
+        </ul>
+      </div>
+
+      {/* 5. Social Links */}
+      <div className="md:col-span-2 text-left">
+        <h4 className="text-[17px] font-semibold mb-7">Social Links</h4>
+        <div className="flex gap-4">
+          {/* Instagram */}
+          <a href="#" className="w-10 h-10 flex items-center justify-center rounded-full bg-white text-black hover:bg-slate-200 transition">
+            <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 448 512" height="18" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></svg>
+          </a>
+          {/* Facebook */}
+          <a href="#" className="w-10 h-10 flex items-center justify-center rounded-full bg-white text-black hover:bg-slate-200 transition">
+            <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 320 512" height="18" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"></path></svg>
+          </a>
+          {/* X (Twitter) */}
+          <a href="#" className="w-10 h-10 flex items-center justify-center rounded-full bg-white text-black hover:bg-slate-200 transition">
+            <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 512 512" height="18" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"></path></svg>
+          </a>
         </div>
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center mt-6 text-sm text-slate-400">
-          <p>© 2026 Digitools. All rights reserved.</p>
-          <div className="flex gap-6 mt-3 md:mt-0"><a href="#" className="hover:text-white transition">Privacy Policy</a><a href="#" className="hover:text-white transition">Terms of Service</a></div>
-        </div>
-      </footer>
+      </div>
+    </div>
+
+    {/* Bottom Bar */}
+    <div className="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-slate-500 text-[14px]">
+      <p>© 2026 Digitools. All rights reserved.</p>
+      <div className="flex gap-8">
+        <a href="#" className="hover:text-white transition">Privacy Policy</a>
+        <a href="#" className="hover:text-white transition">Terms of Service</a>
+        <a href="#" className="hover:text-white transition">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
 
       <ToastContainer position="bottom-right" autoClose={2500} theme="colored" />
     </div>
