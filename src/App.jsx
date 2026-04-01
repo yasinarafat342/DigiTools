@@ -10,9 +10,9 @@ import bannerImage from './assets/banner.png';
 
 // --- Products Data ---
 const productsData = [
-  { id: 1, title: 'AI Writer Pro', price: 49, unit: '/mo', description: 'Advanced AI content generation tool for writers.', features: ['Unlimited words', 'SEO optimization', 'Multi-language'], tag: 'Popular', tagStyle: 'bg-purple-100 text-purple-600 border-purple-200', icon: "📝" },
-  { id: 2, title: 'Design Suite', price: 29, unit: '/mo', description: 'Professional assets and UI kits for designers.', features: ['1000+ Icons', 'Vector export', 'Figma sync'], tag: 'New', tagStyle: 'bg-blue-100 text-blue-600 border-blue-200', icon: "🎨" },
-  { id: 3, title: 'Photo Enhancer', price: 19, unit: '/mo', description: 'Magic upscale for low-res images using AI.', features: ['4K export', 'Batch processing', 'Face restore'], tag: 'Hot', tagStyle: 'bg-red-100 text-red-600 border-red-200', icon: "📷" },
+  { id: 1, title: 'AI Writer Pro', price: 49, unit: '/mo', description: 'Advanced AI content generation tool for writers.', features: ['Unlimited words', 'SEO optimization', 'Multi-language'], tag: 'Best Seller', tagStyle: 'bg-purple-100 text-purple-600 border-purple-200', icon: "📝" },
+  { id: 2, title: 'Design Suite', price: 29, unit: '/mo', description: 'Professional assets and UI kits for designers.', features: ['1000+ Icons', 'Vector export', 'Figma sync'], tag: 'Popular', tagStyle: 'bg-blue-100 text-blue-600 border-blue-200', icon: "🎨" },
+  { id: 3, title: 'Photo Enhancer', price: 19, unit: '/mo', description: 'Magic upscale for low-res images using AI.', features: ['4K export', 'Batch processing', 'Face restore'], tag: 'New', tagStyle: 'bg-red-100 text-red-600 border-red-200', icon: "📷" },
   { id: 4, title: 'SEO Analyzer', price: 39, unit: '/mo', description: 'Deep scan your website for SEO improvements.', features: ['Backlink check', 'Keyword tracking', 'Competitor audit'], tag: 'Tools', tagStyle: 'bg-emerald-100 text-emerald-600 border-emerald-200', icon: "🔍" },
   { id: 5, title: 'Social Stream', price: 15, unit: '/mo', description: 'Manage all social media from one dashboard.', features: ['Auto-post', 'Analytics', 'Team access'], tag: 'Growth', tagStyle: 'bg-orange-100 text-orange-600 border-orange-200', icon: "📱" },
   { id: 6, title: 'Cloud Layer', price: 59, unit: '/mo', description: 'Secure cloud storage with version control.', features: ['Infinite history', 'Encrypted', 'Instant share'], tag: 'Storage', tagStyle: 'bg-indigo-100 text-indigo-600 border-indigo-200', icon: "☁️" },
@@ -87,11 +87,9 @@ const DigiToolsLanding = () => {
 
       {view === 'home' ? (
         <>
-          {/* HERO - এখানে পরিবর্তন করা হয়েছে */}
+          {/* HERO */}
           <header className="max-w-7xl mx-auto px-8 py-16 md:py-24 grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-8 text-center md:text-left">
-              
-              {/* --- ছবির মতো AI ব্যাজ এখানে যোগ করা হয়েছে --- */}
               <div className="flex justify-center md:justify-start">
                 <div className="inline-flex items-center gap-2.5 bg-[#EEF2FF] border border-[#E0E7FF] text-[#4338CA] px-4 py-2 rounded-full text-sm font-medium shadow-inner">
                   <div className="relative flex h-2 w-2">
@@ -107,7 +105,7 @@ const DigiToolsLanding = () => {
                 <span className="text-slate-800">Digital Workflow</span>
               </h1>
               <p className="text-slate-500 text-lg max-w-md mx-auto md:mx-0 leading-relaxed">
-                Access premium AI tools, design assets, templates, and productivity software—all in one place.Start creating faster today.Explore products
+                Access premium AI tools, design assets, templates, and productivity software—all in one place. Start creating faster today.
               </p>
               <div className="flex flex-wrap justify-center md:justify-start gap-4 pt-4">
                 <button className="bg-[#7C3AED] text-white px-8 py-3 rounded-full font-semibold hover:bg-purple-700 transition shadow-lg">Explore Products</button>
@@ -164,9 +162,23 @@ const DigiToolsLanding = () => {
                       <div className={`absolute top-6 right-8 px-4 py-1 rounded-full text-[10px] font-bold uppercase border ${product.tagStyle}`}>{product.tag}</div>
                       <div className="w-14 h-14 bg-purple-50 rounded-2xl mb-8 flex items-center justify-center text-3xl shadow-inner">{product.icon}</div>
                       <h3 className="text-2xl font-bold text-slate-900 mb-3">{product.title}</h3>
-                      <p className="text-slate-500 text-sm leading-relaxed mb-8">{product.description}</p>
+                      <p className="text-slate-500 text-sm leading-relaxed mb-6">{product.description}</p>
+                      
+                      {/* --- এখানে ফিচার লিস্ট যোগ করা হয়েছে --- */}
+                      <ul className="space-y-3 mb-8">
+                        {product.features.map((feature, i) => (
+                          <li key={i} className="flex items-center gap-2 text-xs font-semibold text-slate-600">
+                            <Check size={14} className="text-[#7C3AED]" /> {feature}
+                          </li>
+                        ))}
+                      </ul>
+
                       <div className="text-4xl font-bold mb-8 text-slate-900">${product.price}<span className="text-slate-400 text-lg font-medium">{product.unit}</span></div>
-                      <button onClick={() => addToCart(product)} className={`w-full py-4 rounded-3xl font-bold text-lg transition shadow-lg ${alreadyInCart ? 'bg-emerald-500 text-white' : 'bg-[#7C3AED] text-white hover:bg-purple-700'}`}>
+                      
+                      <button 
+                        onClick={() => addToCart(product)} 
+                        className={`w-full py-4 rounded-3xl font-bold text-lg transition shadow-lg active:scale-95 ${alreadyInCart ? 'bg-emerald-500 text-white' : 'bg-[#7C3AED] text-white hover:bg-purple-700'}`}
+                      >
                         {alreadyInCart ? '✓ Added' : 'Buy Now'}
                       </button>
                     </div>
