@@ -42,11 +42,12 @@ const DigiToolsLanding = () => {
   const handleCheckout = () => {
     setCart([]);
     setView('home');
-    toast.info("Success! Thank you for your purchase.", { position: "top-center" });
+    toast.info("Success! Thank you for your purchase.");
   };
 
   const totalPrice = cart.reduce((total, item) => total + item.price, 0);
 
+  // --- Original Data Sections ---
   const steps = [
     { id: '01', title: 'Create Account', description: 'Sign up for free in seconds. No credit card required.', icon: <UserPlus className="text-purple-600" size={32} /> },
     { id: '02', title: 'Choose Products', description: 'Browse our catalog and select the tools that fit your needs.', icon: <Package className="text-purple-600" size={32} /> },
@@ -62,32 +63,27 @@ const DigiToolsLanding = () => {
   return (
     <div className="min-h-screen bg-white font-sans text-slate-900 overflow-x-hidden">
       
-      {/* NAVBAR */}
-      <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md flex items-center justify-between px-8 py-5 max-w-7xl mx-auto border-b border-purple-100">
-        <div 
-          className="text-2xl font-bold text-purple-600 flex items-center gap-1 cursor-pointer"
-          onClick={() => setView('home')}
-        >
-          DigiTools
-        </div>
-        <div className="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-600">
-          <button onClick={() => setView('home')} className="hover:text-purple-600 transition">Products</button>
-          <a href="#steps" className="hover:text-purple-600 transition">Features</a>
-          <a href="#pricing" className="hover:text-purple-600 transition">Pricing</a>
-        </div>
-        <div className="flex items-center gap-6">
-          <button 
-            className="text-slate-600 hover:text-purple-600 relative p-2"
-            onClick={() => setView('cart')}
-          >
-            <ShoppingCart size={22} />
-            {cart.length > 0 && (
-              <span className="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] rounded-full h-5 w-5 flex items-center justify-center font-bold border-2 border-white">
-                {cart.length}
-              </span>
-            )}
-          </button>
-          <button className="bg-purple-600 text-white px-6 py-2.5 rounded-full text-sm font-bold hover:bg-purple-700 transition shadow-lg shadow-purple-100">Get Started</button>
+      {/* --- NAVBAR (Same to Same like your image) --- */}
+      <nav className="sticky top-0 z-50 bg-white border-b border-slate-100 shadow-sm">
+        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+          <div className="text-3xl font-extrabold text-[#7C3AED] cursor-pointer" onClick={() => setView('home')}>
+            DigiTools
+          </div>
+          <div className="hidden lg:flex items-center gap-10 text-[15px] font-medium text-slate-600">
+            <button onClick={() => setView('home')} className="hover:text-[#7C3AED] transition">Products</button>
+            <a href="#steps" className="hover:text-[#7C3AED] transition">Features</a>
+            <a href="#pricing" className="hover:text-[#7C3AED] transition">Pricing</a>
+            <a href="#testimonials" className="hover:text-[#7C3AED] transition">Testimonials</a>
+            <a href="#faq" className="hover:text-[#7C3AED] transition">FAQ</a>
+          </div>
+          <div className="flex items-center gap-6">
+            <button className="text-slate-600 hover:text-[#7C3AED] relative p-1" onClick={() => setView('cart')}>
+              <ShoppingCart size={20} />
+              {cart.length > 0 && <span className="absolute -top-1.5 -right-1.5 bg-red-500 text-white text-[10px] rounded-full h-4 w-4 flex items-center justify-center font-bold">{cart.length}</span>}
+            </button>
+            <button className="text-slate-700 font-semibold text-[15px] hover:text-[#7C3AED] transition">Login</button>
+            <button className="bg-gradient-to-r from-[#8B5CF6] to-[#7C3AED] text-white px-7 py-2.5 rounded-full text-sm font-bold hover:shadow-lg transition-all active:scale-95">Get Started</button>
+          </div>
         </div>
       </nav>
 
@@ -96,123 +92,66 @@ const DigiToolsLanding = () => {
           {/* HERO */}
           <header className="max-w-7xl mx-auto px-8 py-16 md:py-24 grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6 text-center md:text-left">
-              <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight leading-tight">
-                Supercharge Your <br />
-                <span className="text-slate-800">Digital Workflow</span>
-              </h1>
-              <p className="text-slate-500 text-lg max-w-md mx-auto md:mx-0 leading-relaxed">
-                Access premium AI tools, design assets, templates, and productivity software—all in one place.
-              </p>
+              <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight leading-tight">Supercharge Your <br /><span className="text-slate-800">Digital Workflow</span></h1>
+              <p className="text-slate-500 text-lg max-w-md mx-auto md:mx-0 leading-relaxed">Access premium AI tools, design assets, templates, and productivity software—all in one place.</p>
               <div className="flex flex-wrap justify-center md:justify-start gap-4 pt-4">
-                <button className="bg-purple-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-purple-700 transition shadow-lg shadow-purple-200">Explore Products</button>
-                <button className="flex items-center gap-2 border border-purple-200 text-purple-600 px-8 py-3 rounded-full font-semibold hover:bg-purple-50 transition">
-                  <Play size={18} fill="currentColor" /> Watch Demo
-                </button>
+                <button className="bg-[#7C3AED] text-white px-8 py-3 rounded-full font-semibold hover:bg-purple-700 transition shadow-lg">Explore Products</button>
+                <button className="flex items-center gap-2 border border-purple-200 text-[#7C3AED] px-8 py-3 rounded-full font-semibold hover:bg-purple-50 transition"><Play size={18} fill="currentColor" /> Watch Demo</button>
               </div>
             </div>
-            
             <div className="relative flex justify-center items-center">
-                <div className="w-full max-w-lg aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl shadow-purple-100 border-4 border-white">
-                    <img 
-                      src={bannerImage} 
-                      alt="Digital Workflow" 
-                      className="w-full h-full object-cover" 
-                    />
+                <div className="w-full max-w-lg aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
+                    <img src={bannerImage} alt="Banner" className="w-full h-full object-cover" />
                 </div>
             </div>
           </header>
 
-          {/* --- নতুন যুক্ত করা স্ট্যাটস সেকশন --- */}
-<section id="stats" className="py-20 bg-gradient-to-r from-purple-700 to-indigo-800 text-white border-t-2 border-dashed border-purple-400">
-  <div className="max-w-7xl mx-auto px-8">
-    <div className="flex flex-col md:flex-row justify-center items-center gap-10 md:gap-0 bg-purple-900/40 rounded-3xl p-12 border-2 border-white/20 shadow-2xl backdrop-blur-sm">
-      
-      {/* Active Users */}
-      <div className="flex-1 text-center md:border-r border-white/20 last:border-none px-6">
-        <div className="text-6xl md:text-7xl font-extrabold tracking-tight mb-3">50K+</div>
-        <p className="text-lg text-purple-100 font-medium">Active Users</p>
-      </div>
+          {/* --- STATS SECTION (Purple Gradient) --- */}
+          <section className="py-20 bg-[#7C3AED] text-white">
+            <div className="max-w-7xl mx-auto px-8">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center py-12 border border-white/20 rounded-3xl bg-white/5 backdrop-blur-sm">
+                <div className="md:border-r border-white/20 last:border-none">
+                  <div className="text-6xl font-black mb-2 tracking-tight">50K+</div>
+                  <p className="text-purple-100 font-medium text-lg">Active Users</p>
+                </div>
+                <div className="md:border-r border-white/20 last:border-none">
+                  <div className="text-6xl font-black mb-2 tracking-tight">200+</div>
+                  <p className="text-purple-100 font-medium text-lg">Premium Tools</p>
+                </div>
+                <div>
+                  <div className="text-6xl font-black mb-2 tracking-tight">4.9</div>
+                  <p className="text-purple-100 font-medium text-lg">Rating</p>
+                </div>
+              </div>
+            </div>
+          </section>
 
-      {/* Premium Tools */}
-      <div className="flex-1 text-center md:border-r border-white/20 last:border-none px-6">
-        <div className="text-6xl md:text-7xl font-extrabold tracking-tight mb-3">200+</div>
-        <p className="text-lg text-purple-100 font-medium">Premium Tools</p>
-      </div>
-
-      {/* Rating */}
-      <div className="flex-1 text-center md:border-r border-white/20 last:border-none px-6">
-        <div className="text-6xl md:text-7xl font-extrabold tracking-tight mb-3">4.9</div>
-        <p className="text-lg text-purple-100 font-medium">Rating</p>
-      </div>
-
-    </div>
-  </div>
-</section>
-{/* --- স্ট্যাটস সেকশন শেষ --- */}
-
-
-          {/* PRODUCTS SECTION - Updated with Toggle Button inside a Card Box */}
+          {/* PRODUCTS SECTION WITH ORIGINAL BOX TOGGLE */}
           <section id="products" className="py-24 px-6 bg-slate-50">
             <div className="max-w-7xl mx-auto text-center">
-              
-              <div className="mb-16">
-                <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
-                  Premium Digital Tools
-                </h2>
+              <div className="mb-16 text-center">
+                <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">Premium Digital Tools</h2>
+                <p className="text-slate-500 max-w-2xl mx-auto mb-10 text-sm md:text-base leading-relaxed">Choose from our curated collection of premium digital products designed to boost your productivity.</p>
                 
-                <p className="text-slate-500 max-w-2xl mx-auto mb-10 text-sm md:text-base leading-relaxed">
-                  Choose from our curated collection of premium digital products designed to boost your productivity and creativity.
-                </p>
-
-                {/* --- বাটন দুটিকে একটি কার্ড বক্সে রাখা হয়েছে --- */}
                 <div className="flex justify-center">
-                  <div className="inline-flex items-center bg-white rounded-3xl p-3 border border-slate-200 shadow-xl gap-4">
-                    <button 
-                      onClick={() => setView('home')}
-                      className={`px-10 py-3 rounded-2xl text-sm font-bold transition-all duration-300 ${
-                        view === 'home' 
-                        ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg' 
-                        : 'text-slate-500 hover:text-slate-800 bg-slate-50'
-                      }`}
-                    >
-                      Products
-                    </button>
-                    
-                    <button 
-                      onClick={() => setView('cart')}
-                      className={`px-10 py-3 rounded-2xl text-sm font-bold transition-all duration-300 ${
-                        view === 'cart' 
-                        ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg' 
-                        : 'text-slate-500 hover:text-slate-800 bg-slate-50'
-                      }`}
-                    >
-                      Cart ({cart.length})
-                    </button>
+                  <div className="inline-flex items-center bg-white rounded-full p-1.5 border border-slate-100 shadow-sm">
+                    <button onClick={() => setView('home')} className={`px-10 py-2.5 rounded-full text-sm font-bold transition-all ${view === 'home' ? 'bg-gradient-to-r from-[#8B5CF6] to-[#7C3AED] text-white shadow-md' : 'text-slate-500'}`}>Products</button>
+                    <button onClick={() => setView('cart')} className={`px-10 py-2.5 rounded-full text-sm font-bold transition-all ${view === 'cart' ? 'bg-gradient-to-r from-[#8B5CF6] to-[#7C3AED] text-white shadow-md' : 'text-slate-500'}`}>Cart ({cart.length})</button>
                   </div>
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
                 {productsData.map(product => {
                   const alreadyInCart = cart.find(item => item.id === product.id);
                   return (
-                    <div key={product.id} className="bg-white border border-slate-100 rounded-[2.5rem] p-10 relative hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group text-left">
+                    <div key={product.id} className="bg-white border border-slate-100 rounded-[2.5rem] p-10 relative hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
                       <div className={`absolute top-6 right-8 px-4 py-1 rounded-full text-[10px] font-bold uppercase border ${product.tagStyle}`}>{product.tag}</div>
-                      <div className="w-14 h-14 bg-purple-50 rounded-2xl mb-8 flex items-center justify-center text-3xl shadow-inner group-hover:scale-110 transition-transform">
-                        {product.icon}
-                      </div>
+                      <div className="w-14 h-14 bg-purple-50 rounded-2xl mb-8 flex items-center justify-center text-3xl shadow-inner">{product.icon}</div>
                       <h3 className="text-2xl font-bold text-slate-900 mb-3">{product.title}</h3>
                       <p className="text-slate-500 text-sm leading-relaxed mb-8">{product.description}</p>
-                      <div className="text-4xl font-bold mb-8 text-slate-900">
-                        ${product.price}<span className="text-slate-400 text-lg font-medium">{product.unit}</span>
-                      </div>
-                      <ul className="space-y-4 mb-10">
-                        {product.features.map((f,i) => <li key={i} className="flex items-center gap-3 text-sm text-slate-600 font-medium"><Check size={18} className="text-emerald-500 stroke-[3.5px]" />{f}</li>)}
-                      </ul>
-                      <button 
-                        onClick={() => addToCart(product)}
-                        className={`w-full py-4 rounded-3xl font-bold text-lg transition shadow-lg ${alreadyInCart ? 'bg-emerald-500 text-white shadow-emerald-100' : 'bg-purple-600 text-white hover:bg-purple-700 shadow-purple-100'}`}
-                      >
+                      <div className="text-4xl font-bold mb-8 text-slate-900">${product.price}<span className="text-slate-400 text-lg font-medium">{product.unit}</span></div>
+                      <button onClick={() => addToCart(product)} className={`w-full py-4 rounded-3xl font-bold text-lg transition shadow-lg ${alreadyInCart ? 'bg-emerald-500 text-white shadow-emerald-100' : 'bg-[#7C3AED] text-white hover:bg-purple-700'}`}>
                         {alreadyInCart ? '✓ Added' : 'Buy Now'}
                       </button>
                     </div>
@@ -222,18 +161,39 @@ const DigiToolsLanding = () => {
             </div>
           </section>
 
-          {/* STEPS SECTION */}
+          {/* STEPS SECTION (Original Design) */}
           <section id="steps" className="py-24 bg-white">
             <div className="max-w-7xl mx-auto px-8 text-center">
               <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">Get Started In 3 Steps</h2>
               <p className="text-slate-500 text-lg mb-16">Start using premium digital tools in minutes.</p>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {steps.map(step => (
-                  <div key={step.id} className="bg-white p-10 rounded-[2rem] shadow-sm border border-slate-100 relative group hover:shadow-xl transition-all duration-300 text-center">
-                    <div className="absolute top-6 right-6 bg-purple-600 text-white text-xs font-bold w-8 h-8 flex items-center justify-center rounded-full shadow-lg shadow-purple-200">{step.id}</div>
+                  <div key={step.id} className="bg-white p-10 rounded-[2rem] shadow-sm border border-slate-100 relative group hover:shadow-xl transition-all duration-300">
+                    <div className="absolute top-6 right-6 bg-[#7C3AED] text-white text-xs font-bold w-8 h-8 flex items-center justify-center rounded-full shadow-lg">{step.id}</div>
                     <div className="w-20 h-20 bg-purple-50 rounded-full flex items-center justify-center mx-auto mb-8 group-hover:rotate-12 transition-transform">{step.icon}</div>
                     <h3 className="text-2xl font-bold text-slate-900 mb-4">{step.title}</h3>
                     <p className="text-slate-500 leading-relaxed text-sm">{step.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* PRICING SECTION (Original Design) */}
+          <section id="pricing" className="py-24 px-6 bg-slate-50 border-t border-purple-100">
+            <div className="max-w-7xl mx-auto text-center">
+              <h2 className="text-4xl md:text-5 font-bold text-slate-900 mb-16">Simple Pricing</h2>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center text-left">
+                {pricingPlans.map((plan, index) => (
+                  <div key={index} className={`p-10 rounded-[2.5rem] border transition-all duration-300 relative ${plan.isPopular ? 'bg-[#7C3AED] text-white scale-105 shadow-2xl z-10 border-transparent' : 'bg-white text-slate-900 border-slate-200 shadow-sm hover:shadow-lg'}`}>
+                    {plan.isPopular && <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-yellow-400 text-slate-900 text-[10px] font-extrabold px-5 py-1.5 rounded-full uppercase border-2 border-white shadow-md">Most Popular</div>}
+                    <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
+                    <p className={`text-sm mb-10 ${plan.isPopular ? 'text-purple-100' : 'text-slate-400'}`}>{plan.description}</p>
+                    <div className="mb-10"><span className="text-5xl font-extrabold">{plan.price}</span><span className={`text-lg font-medium ${plan.isPopular ? 'text-purple-200' : 'text-slate-400'}`}>/mo</span></div>
+                    <ul className="space-y-5 mb-10">
+                      {plan.features.map((f, idx) => <li key={idx} className="flex items-center gap-3 text-[14px] font-semibold"><Check size={18} className={plan.isPopular ? 'text-white' : 'text-emerald-500'} />{f}</li>)}
+                    </ul>
+                    <button className={`w-full py-4 rounded-2xl font-bold text-lg transition-all ${plan.isPopular ? 'bg-white text-[#7C3AED] hover:bg-slate-50' : 'bg-[#7C3AED] text-white hover:bg-purple-700'}`}>{plan.buttonText}</button>
                   </div>
                 ))}
               </div>
@@ -244,22 +204,18 @@ const DigiToolsLanding = () => {
         /* CART VIEW */
         <section className="py-24 px-8 min-h-[60vh] bg-slate-50 text-center animate-in fade-in duration-300">
           <div className="max-w-3xl mx-auto">
-            {/* কার্টেও একই বাটন ডিজাইন ব্যবহার করা হয়েছে */}
-            <div className="mb-12">
-              <h2 className="text-4xl font-extrabold text-slate-900 mb-6">Your Cart</h2>
-              <div className="flex justify-center mt-6">
-                  <div className="inline-flex items-center bg-white border border-slate-200 rounded-3xl p-3 shadow-xl gap-4">
-                    <button onClick={() => setView('home')} className="px-10 py-3 rounded-2xl text-sm font-bold text-slate-500 bg-slate-50 hover:text-slate-800 transition">Products</button>
-                    <button className="px-10 py-3 rounded-2xl text-sm font-bold bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg">Cart ({cart.length})</button>
-                  </div>
-              </div>
+            <h2 className="text-4xl font-extrabold text-slate-900 mb-10">Your Cart</h2>
+            <div className="flex justify-center mb-12">
+                <div className="inline-flex items-center bg-white border border-slate-100 rounded-full p-1.5 shadow-sm">
+                  <button onClick={() => setView('home')} className="px-10 py-2.5 rounded-full text-sm font-bold text-slate-500">Products</button>
+                  <button className="px-10 py-2.5 rounded-full text-sm font-bold bg-[#7C3AED] text-white shadow-lg">Cart ({cart.length})</button>
+                </div>
             </div>
-            
             {cart.length === 0 ? (
-              <div className="bg-white p-16 rounded-[2.5rem] border-2 border-dashed border-slate-200 text-center">
+              <div className="bg-white p-16 rounded-[2.5rem] border-2 border-dashed border-slate-200">
                 <div className="w-20 h-20 bg-slate-50 rounded-full flex items-center justify-center mx-auto mb-6 text-4xl">🛒</div>
                 <h3 className="text-xl font-bold text-slate-400">Your cart is empty</h3>
-                <button onClick={() => setView('home')} className="mt-6 bg-purple-600 text-white px-8 py-3 rounded-full font-bold">Start Shopping</button>
+                <button onClick={() => setView('home')} className="mt-6 bg-[#7C3AED] text-white px-8 py-3 rounded-full font-bold">Start Shopping</button>
               </div>
             ) : (
               <div className="space-y-4">
@@ -267,21 +223,17 @@ const DigiToolsLanding = () => {
                   <div key={item.id} className="bg-white p-6 rounded-3xl border border-slate-100 flex items-center justify-between shadow-sm">
                     <div className="flex items-center gap-4 text-left">
                       <div className="w-12 h-12 bg-purple-50 rounded-xl flex items-center justify-center text-xl">{item.icon}</div>
-                      <div>
-                        <h4 className="font-bold text-slate-900">{item.title}</h4>
-                        <p className="text-sm text-slate-400">${item.price}</p>
-                      </div>
+                      <div><h4 className="font-bold text-slate-900">{item.title}</h4><p className="text-sm text-slate-400">${item.price}</p></div>
                     </div>
                     <button onClick={() => removeFromCart(item.id)} className="p-2 text-red-400 hover:text-red-600 hover:bg-red-50 rounded-full transition"><X size={20} /></button>
                   </div>
                 ))}
-                
-                <div className="mt-10 bg-purple-600 rounded-[2.5rem] p-10 text-white flex flex-col md:flex-row justify-between items-center gap-6 shadow-2xl">
+                <div className="mt-10 bg-[#7C3AED] rounded-[2.5rem] p-10 text-white flex flex-col md:flex-row justify-between items-center gap-6 shadow-2xl">
                   <div className="text-left">
-                    <p className="text-purple-100 text-sm font-medium uppercase Tracking-wider mb-1">Total Amount</p>
+                    <p className="text-purple-100 text-sm font-medium uppercase mb-1">Total Amount</p>
                     <h3 className="text-4xl font-black">${totalPrice.toFixed(2)}</h3>
                   </div>
-                  <button onClick={handleCheckout} className="bg-white text-purple-600 px-12 py-4 rounded-2xl font-black text-lg hover:bg-slate-50 transition active:scale-95">Checkout Now</button>
+                  <button onClick={handleCheckout} className="bg-white text-[#7C3AED] px-12 py-4 rounded-2xl font-black text-lg hover:bg-slate-50 transition active:scale-95">Checkout Now</button>
                 </div>
               </div>
             )}
@@ -289,43 +241,12 @@ const DigiToolsLanding = () => {
         </section>
       )}
 
-      {/* PRICING SECTION */}
-      <section id="pricing" className="py-24 px-6 bg-slate-50 border-t border-purple-100">
-        <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5 font-bold text-slate-900 mb-16">Simple Pricing</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center mb-20 text-left">
-            {pricingPlans.map((plan, index) => (
-              <div key={index} className={`p-10 rounded-[2.5rem] border transition-all duration-300 relative ${plan.isPopular ? 'bg-purple-600 text-white scale-105 shadow-2xl z-10 border-transparent' : 'bg-white text-slate-900 border-slate-200 shadow-sm hover:shadow-lg'}`}>
-                {plan.isPopular && <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-yellow-400 text-slate-900 text-[10px] font-extrabold px-5 py-1.5 rounded-full uppercase border-2 border-white shadow-md">Most Popular</div>}
-                <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
-                <p className={`text-sm mb-10 ${plan.isPopular ? 'text-purple-100' : 'text-slate-400'}`}>{plan.description}</p>
-                <div className="mb-10">
-                  <span className="text-5xl font-extrabold">{plan.price}</span>
-                  <span className={`text-lg font-medium ${plan.isPopular ? 'text-purple-200' : 'text-slate-400'}`}>/mo</span>
-                </div>
-                <ul className="space-y-5 mb-10">
-                  {plan.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-center gap-3 text-[14px] font-semibold">
-                      <Check size={18} className={plan.isPopular ? 'text-white' : 'text-emerald-500'} />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-                <button className={`w-full py-4 rounded-2xl font-bold text-lg transition-all ${plan.isPopular ? 'bg-white text-purple-600 hover:bg-slate-50' : 'bg-purple-600 text-white hover:bg-purple-700'}`}>{plan.buttonText}</button>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* FOOTER */}
+      {/* FOOTER (Original Dark Design with FB/TW icons) */}
       <footer className="bg-[#0b1a2a] text-white pt-20 pb-6 px-8 text-left">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-5 gap-12 border-b border-slate-800 pb-16">
           <div className="md:col-span-2 space-y-6">
             <h2 className="text-3xl font-extrabold text-white">DigiTools</h2>
-            <p className="text-slate-400 max-w-sm leading-relaxed text-sm">
-              Premium digital tools for creators and businesses. Work smarter with our suite of powerful tools.
-            </p>
+            <p className="text-slate-400 max-w-sm leading-relaxed text-sm">Premium digital tools for creators and businesses. Work smarter with our suite of powerful tools.</p>
           </div>
           <div>
             <h4 className="font-semibold mb-6 text-white text-lg">Product</h4>
@@ -361,7 +282,6 @@ const DigiToolsLanding = () => {
         </div>
       </footer>
 
-      {/* TOAST NOTIFICATIONS */}
       <ToastContainer position="bottom-right" autoClose={2500} theme="colored" />
     </div>
   );
