@@ -107,7 +107,7 @@ const DigiToolsLanding = () => {
                 <span className="text-slate-800">Digital Workflow</span>
               </h1>
               <p className="text-slate-500 text-lg max-w-md mx-auto md:mx-0 leading-relaxed">
-                Access premium AI tools, design assets, templates, and productivity software—all in one place.
+                Access premium AI tools, design assets, templates, and productivity software—all in one place.Start creating faster today.Explore products
               </p>
               <div className="flex flex-wrap justify-center md:justify-start gap-4 pt-4">
                 <button className="bg-[#7C3AED] text-white px-8 py-3 rounded-full font-semibold hover:bg-purple-700 transition shadow-lg">Explore Products</button>
