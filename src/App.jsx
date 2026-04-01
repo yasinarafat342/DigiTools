@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { 
-  ShoppingCart, Play, Check, UserPlus, Package, Rocket, X 
+  ShoppingCart, Play, Check, UserPlus, Package, Rocket, X, Zap
 } from 'lucide-react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -22,7 +22,6 @@ const DigiToolsLanding = () => {
   const [cart, setCart] = useState([]);
   const [view, setView] = useState('home'); 
 
-  // --- Cart Functions ---
   const addToCart = (product) => {
     const isExist = cart.find(item => item.id === product.id);
     if (isExist) {
@@ -47,7 +46,6 @@ const DigiToolsLanding = () => {
 
   const totalPrice = cart.reduce((total, item) => total + item.price, 0);
 
-  // --- Original Data Sections ---
   const steps = [
     { id: '01', title: 'Create Account', description: 'Sign up for free in seconds. No credit card required.', icon: <UserPlus className="text-purple-600" size={32} /> },
     { id: '02', title: 'Choose Products', description: 'Browse our catalog and select the tools that fit your needs.', icon: <Package className="text-purple-600" size={32} /> },
@@ -63,7 +61,7 @@ const DigiToolsLanding = () => {
   return (
     <div className="min-h-screen bg-white font-sans text-slate-900 overflow-x-hidden">
       
-      {/* --- NAVBAR (Same to Same like your image) --- */}
+      {/* NAVBAR */}
       <nav className="sticky top-0 z-50 bg-white border-b border-slate-100 shadow-sm">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           <div className="text-3xl font-extrabold text-[#7C3AED] cursor-pointer" onClick={() => setView('home')}>
@@ -89,11 +87,28 @@ const DigiToolsLanding = () => {
 
       {view === 'home' ? (
         <>
-          {/* HERO */}
+          {/* HERO - এখানে পরিবর্তন করা হয়েছে */}
           <header className="max-w-7xl mx-auto px-8 py-16 md:py-24 grid md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6 text-center md:text-left">
-              <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight leading-tight">Supercharge Your <br /><span className="text-slate-800">Digital Workflow</span></h1>
-              <p className="text-slate-500 text-lg max-w-md mx-auto md:mx-0 leading-relaxed">Access premium AI tools, design assets, templates, and productivity software—all in one place.</p>
+            <div className="space-y-8 text-center md:text-left">
+              
+              {/* --- ছবির মতো AI ব্যাজ এখানে যোগ করা হয়েছে --- */}
+              <div className="flex justify-center md:justify-start">
+                <div className="inline-flex items-center gap-2.5 bg-[#EEF2FF] border border-[#E0E7FF] text-[#4338CA] px-4 py-2 rounded-full text-sm font-medium shadow-inner">
+                  <div className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#8B5CF6] opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-[#7C3AED]"></span>
+                  </div>
+                  New: AI-Powered Tools Available
+                </div>
+              </div>
+
+              <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight leading-tight">
+                Supercharge Your <br />
+                <span className="text-slate-800">Digital Workflow</span>
+              </h1>
+              <p className="text-slate-500 text-lg max-w-md mx-auto md:mx-0 leading-relaxed">
+                Access premium AI tools, design assets, templates, and productivity software—all in one place.
+              </p>
               <div className="flex flex-wrap justify-center md:justify-start gap-4 pt-4">
                 <button className="bg-[#7C3AED] text-white px-8 py-3 rounded-full font-semibold hover:bg-purple-700 transition shadow-lg">Explore Products</button>
                 <button className="flex items-center gap-2 border border-purple-200 text-[#7C3AED] px-8 py-3 rounded-full font-semibold hover:bg-purple-50 transition"><Play size={18} fill="currentColor" /> Watch Demo</button>
@@ -106,7 +121,7 @@ const DigiToolsLanding = () => {
             </div>
           </header>
 
-          {/* --- STATS SECTION (Purple Gradient) --- */}
+          {/* STATS SECTION */}
           <section className="py-20 bg-[#7C3AED] text-white">
             <div className="max-w-7xl mx-auto px-8">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center py-12 border border-white/20 rounded-3xl bg-white/5 backdrop-blur-sm">
@@ -126,7 +141,7 @@ const DigiToolsLanding = () => {
             </div>
           </section>
 
-          {/* PRODUCTS SECTION WITH ORIGINAL BOX TOGGLE */}
+          {/* PRODUCTS SECTION */}
           <section id="products" className="py-24 px-6 bg-slate-50">
             <div className="max-w-7xl mx-auto text-center">
               <div className="mb-16 text-center">
@@ -151,7 +166,7 @@ const DigiToolsLanding = () => {
                       <h3 className="text-2xl font-bold text-slate-900 mb-3">{product.title}</h3>
                       <p className="text-slate-500 text-sm leading-relaxed mb-8">{product.description}</p>
                       <div className="text-4xl font-bold mb-8 text-slate-900">${product.price}<span className="text-slate-400 text-lg font-medium">{product.unit}</span></div>
-                      <button onClick={() => addToCart(product)} className={`w-full py-4 rounded-3xl font-bold text-lg transition shadow-lg ${alreadyInCart ? 'bg-emerald-500 text-white shadow-emerald-100' : 'bg-[#7C3AED] text-white hover:bg-purple-700'}`}>
+                      <button onClick={() => addToCart(product)} className={`w-full py-4 rounded-3xl font-bold text-lg transition shadow-lg ${alreadyInCart ? 'bg-emerald-500 text-white' : 'bg-[#7C3AED] text-white hover:bg-purple-700'}`}>
                         {alreadyInCart ? '✓ Added' : 'Buy Now'}
                       </button>
                     </div>
@@ -161,7 +176,7 @@ const DigiToolsLanding = () => {
             </div>
           </section>
 
-          {/* STEPS SECTION (Original Design) */}
+          {/* STEPS SECTION */}
           <section id="steps" className="py-24 bg-white">
             <div className="max-w-7xl mx-auto px-8 text-center">
               <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">Get Started In 3 Steps</h2>
@@ -179,7 +194,7 @@ const DigiToolsLanding = () => {
             </div>
           </section>
 
-          {/* PRICING SECTION (Original Design) */}
+          {/* PRICING SECTION */}
           <section id="pricing" className="py-24 px-6 bg-slate-50 border-t border-purple-100">
             <div className="max-w-7xl mx-auto text-center">
               <h2 className="text-4xl md:text-5 font-bold text-slate-900 mb-16">Simple Pricing</h2>
@@ -241,44 +256,20 @@ const DigiToolsLanding = () => {
         </section>
       )}
 
-      {/* FOOTER (Original Dark Design with FB/TW icons) */}
+      {/* FOOTER */}
       <footer className="bg-[#0b1a2a] text-white pt-20 pb-6 px-8 text-left">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-5 gap-12 border-b border-slate-800 pb-16">
           <div className="md:col-span-2 space-y-6">
             <h2 className="text-3xl font-extrabold text-white">DigiTools</h2>
             <p className="text-slate-400 max-w-sm leading-relaxed text-sm">Premium digital tools for creators and businesses. Work smarter with our suite of powerful tools.</p>
           </div>
-          <div>
-            <h4 className="font-semibold mb-6 text-white text-lg">Product</h4>
-            <ul className="space-y-3 text-slate-400 text-sm">
-              <li><a href="#" className="hover:text-purple-400 transition">Features</a></li>
-              <li><a href="#" className="hover:text-purple-400 transition">Pricing</a></li>
-              <li><a href="#" className="hover:text-purple-400 transition">Templates</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-semibold mb-6 text-white text-lg">Company</h4>
-            <ul className="space-y-3 text-slate-400 text-sm">
-              <li><a href="#" className="hover:text-purple-400 transition">About</a></li>
-              <li><a href="#" className="hover:text-purple-400 transition">Blog</a></li>
-              <li><a href="#" className="hover:text-purple-400 transition">Careers</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-semibold mb-6 text-white text-lg">Social</h4>
-            <div className="flex gap-4">
-              <div className="w-10 h-10 flex items-center justify-center rounded-full bg-white text-black cursor-pointer hover:bg-purple-400 transition font-bold text-sm uppercase">fb</div>
-              <div className="w-10 h-10 flex items-center justify-center rounded-full bg-white text-black cursor-pointer hover:bg-purple-400 transition font-bold text-sm uppercase">tw</div>
-              <div className="w-10 h-10 flex items-center justify-center rounded-full bg-white text-black cursor-pointer hover:bg-purple-400 transition font-bold text-sm uppercase">in</div>
-            </div>
-          </div>
+          <div><h4 className="font-semibold mb-6 text-white text-lg">Product</h4><ul className="space-y-3 text-slate-400 text-sm"><li><a href="#" className="hover:text-purple-400 transition">Features</a></li><li><a href="#" className="hover:text-purple-400 transition">Pricing</a></li><li><a href="#" className="hover:text-purple-400 transition">Templates</a></li></ul></div>
+          <div><h4 className="font-semibold mb-6 text-white text-lg">Company</h4><ul className="space-y-3 text-slate-400 text-sm"><li><a href="#" className="hover:text-purple-400 transition">About</a></li><li><a href="#" className="hover:text-purple-400 transition">Blog</a></li><li><a href="#" className="hover:text-purple-400 transition">Careers</a></li></ul></div>
+          <div><h4 className="font-semibold mb-6 text-white text-lg">Social</h4><div className="flex gap-4"><div className="w-10 h-10 flex items-center justify-center rounded-full bg-white text-black cursor-pointer hover:bg-purple-400 transition font-bold text-sm uppercase">fb</div><div className="w-10 h-10 flex items-center justify-center rounded-full bg-white text-black cursor-pointer hover:bg-purple-400 transition font-bold text-sm uppercase">tw</div><div className="w-10 h-10 flex items-center justify-center rounded-full bg-white text-black cursor-pointer hover:bg-purple-400 transition font-bold text-sm uppercase">in</div></div></div>
         </div>
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center mt-6 text-sm text-slate-400">
           <p>© 2026 Digitools. All rights reserved.</p>
-          <div className="flex gap-6 mt-3 md:mt-0">
-            <a href="#" className="hover:text-white transition">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition">Terms of Service</a>
-          </div>
+          <div className="flex gap-6 mt-3 md:mt-0"><a href="#" className="hover:text-white transition">Privacy Policy</a><a href="#" className="hover:text-white transition">Terms of Service</a></div>
         </div>
       </footer>
 
