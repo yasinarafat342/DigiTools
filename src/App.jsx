@@ -192,7 +192,7 @@ const DigiToolsLanding = () => {
           <section id="steps" className="py-24 bg-white">
             <div className="max-w-7xl mx-auto px-8 text-center">
               <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">Get Started In 3 Steps</h2>
-              <p className="text-slate-500 text-lg mb-16">Start using premium digital tools in minutes.</p>
+              <p className="text-slate-500 text-lg mb-16">Start using premium digital tools in minutes, not hours.</p>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {steps.map(step => (
                   <div key={step.id} className="bg-white p-10 rounded-[2rem] shadow-sm border border-slate-100 relative group hover:shadow-xl transition-all duration-300">
@@ -209,7 +209,10 @@ const DigiToolsLanding = () => {
           {/* PRICING SECTION */}
           <section id="pricing" className="py-24 px-6 bg-slate-50 border-t border-purple-100">
             <div className="max-w-7xl mx-auto text-center">
-              <h2 className="text-4xl md:text-5 font-bold text-slate-900 mb-16">Simple Pricing</h2>
+              <h2 className="text-4xl md:text-5 font-bold text-slate-900 mb-16">Simple, Transparent Pricing</h2>
+              <p className="text-slate-500 text-lg mb-16 max-w-2xl mx-auto">
+      Choose the perfect plan for your needs. No hidden fees, cancel anytime.
+    </p>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center text-left">
                 {pricingPlans.map((plan, index) => (
                   <div key={index} className={`p-10 rounded-[2.5rem] border transition-all duration-300 relative ${plan.isPopular ? 'bg-[#7C3AED] text-white scale-105 shadow-2xl z-10 border-transparent' : 'bg-white text-slate-900 border-slate-200 shadow-sm hover:shadow-lg'}`}>
@@ -267,7 +270,44 @@ const DigiToolsLanding = () => {
           </div>
         </section>
       )}
+{/* CTA SECTION - ফুটারের ঠিক উপরে যোগ করুন */}
+<section className="py-24 px-6">
+  <div className="max-w-7xl mx-auto">
+    <div className="bg-gradient-to-r from-[#8B5CF6] to-[#7C3AED] rounded-[3rem] p-12 md:p-20 text-center text-white shadow-2xl relative overflow-hidden">
+      
+      {/* Background Decorative Circles (Optional for extra flair) */}
+      <div className="absolute top-0 left-0 w-64 h-64 bg-white/5 rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl"></div>
+      <div className="absolute bottom-0 right-0 w-64 h-64 bg-black/5 rounded-full translate-x-1/2 translate-y-1/2 blur-3xl"></div>
 
+      <div className="relative z-10">
+        <h2 className="text-4xl md:text-5xl font-extrabold mb-6 tracking-tight">
+          Ready To Transform Your Workflow?
+        </h2>
+        <p className="text-purple-100 text-lg max-w-2xl mx-auto mb-12 leading-relaxed">
+          Join thousands of professionals who are already using Digitools to work smarter. <br className="hidden md:block" /> 
+          Start your free trial today.
+        </p>
+
+        <div className="flex flex-wrap justify-center gap-4 mb-8">
+          <button className="bg-white text-[#7C3AED] px-10 py-4 rounded-full font-bold text-lg hover:bg-slate-50 transition-all shadow-lg active:scale-95">
+            Explore Products
+          </button>
+          <button className="border-2 border-white/30 text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-white/10 transition-all active:scale-95">
+            View Pricing
+          </button>
+        </div>
+
+        <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 text-purple-200 text-sm font-medium">
+          <span>14-day free trial</span>
+          <span className="hidden md:block">•</span>
+          <span>No credit card required</span>
+          <span className="hidden md:block">•</span>
+          <span>Cancel anytime</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
       {/* FOOTER */}
       <footer className="bg-[#0b1a2a] text-white pt-20 pb-6 px-8 text-left">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-5 gap-12 border-b border-slate-800 pb-16">
